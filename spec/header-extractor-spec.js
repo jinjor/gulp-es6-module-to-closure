@@ -7,7 +7,6 @@ describe('header-extractor', function() {
     var c = new HeaderExtractor();
     var ast = esprima.parse('import {foo,bar} from "foo.js";');
     var header = c.extract(ast);
-    console.log(header.require[0].name);
     expect(header.require[0].name === 'foo' || header.require[0].name === 'bar').toBe(true);
     expect(header.require[0].path).toBe('foo.js');
     expect(header.require[1].name === 'foo' || header.require[1].name === 'bar').toBe(true);

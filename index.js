@@ -3,7 +3,7 @@ var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 
 var esprima = require('esprima-fb');
-var Compiler = require('./lib/compiler.js');
+var Compiler = require('./lib/simple-compiler.js');
 
 // consts
 const PLUGIN_NAME = 'gulp-es6-module-to-closure';
@@ -32,8 +32,7 @@ function gulpPrefixer(options) {
 
     if (file.isBuffer()) {
       var before = file.contents.toString('utf8');
-      var after = new Compiler().compile(esprima.parse(before), options.namespace);
-      console.log(after);
+      var after = new Compiler().compile(before, options.namespace);
       file.contents = new Buffer(after);
     }
 
