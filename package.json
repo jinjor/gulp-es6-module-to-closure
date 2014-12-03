@@ -1,9 +1,10 @@
 {
-  "name": "es6-module-to-closure",
-  "version": "1.0.0",
+  "name": "gulp-es6-module-to-closure",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "pretest": "gulp prepare --gulpfile spec/gulpfile.js",
     "test": "jasmine-node spec"
   },
   "author": "",
@@ -11,9 +12,13 @@
   "dependencies": {
     "es6-promise": "^2.0.0",
     "escodegen": "^1.4.1",
-    "esprima-fb": "^8001.1001.0-dev-harmony-fb"
+    "esprima-fb": "^8001.1001.0-dev-harmony-fb",
+    "gulp-util": "^3.0.1",
+    "jsondiffpatch": "^0.1.20",
+    "through2": "^0.6.3"
   },
   "devDependencies": {
+    "gulp": "^3.8.10",
     "jasmine-node": "^1.14.5"
   }
 }
