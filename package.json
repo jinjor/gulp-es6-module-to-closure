@@ -1,0 +1,17 @@
+{
+  "name": "es6-module-to-closure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node spec"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "esprima-fb": "^8001.1001.0-dev-harmony-fb"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
