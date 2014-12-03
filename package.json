@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "gulp prepare --gulpfile spec/gulpfile.js",
+    "posttest": "gulp prepare --gulpfile spec/gulpfile.js",
     "test": "jasmine-node spec"
   },
   "author": "",
