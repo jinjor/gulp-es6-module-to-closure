@@ -3,7 +3,7 @@ var Compiler = require('../lib/compiler.js');
 
 
 
-describe('converter', function() {
+describe('compiler', function() {
 
   it('can compile import', function() {
     var c = new Compiler(esprima);
