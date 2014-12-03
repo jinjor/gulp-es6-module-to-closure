@@ -18,12 +18,17 @@ describe('converter', function() {
     expect(s.indexOf('goog.require') >= 0).toBe(true);
     expect(s.indexOf('name.space.Bar') >= 0).toBe(true);
   });
-
+  it('can compile export', function() {
+    var s = c.compile('export var foo = "Foo";', 'name.space');
+    console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.foo') >= 0).toBe(true);
+    expect(s.indexOf('Foo') >= 0).toBe(true);
+  });
   it('can compile default export', function() {
-    var s = c.compile('export default "Foo";export default "Bar";', 'name.space');
+    var s = c.compile('export default Foo;', 'name.space');
     console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.Foo') >= 0).toBe(true);
-    expect(s.indexOf('name.space.Bar') >= 0).toBe(true);
   });
 });
