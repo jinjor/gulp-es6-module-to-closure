@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "gulp prepare --gulpfile spec/gulpfile.js",
-    "test": "jasmine-node spec/"
+    "test": "istanbul cover ./node_modules/jasmine-node/bin/jasmine-node spec/"
   },
   "author": "Yosuke Torii",
   "license": "MIT",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "gulp": "^3.8.10",
+    "istanbul": "^0.3.4",
     "jasmine-node": "^1.14.5"
   }
 }
