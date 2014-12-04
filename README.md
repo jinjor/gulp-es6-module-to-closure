@@ -11,15 +11,12 @@ Namespaces are determined by thier directories.
 
 ## Install
 
-`npm install` will comming soon.
 ```shell
-npm install --save-dev git://github.com/jinjor/gulp-es6-module-to-closure.git#master
+npm install gulp-es6-module-to-closure --save-dev
 ```
 
 
 ## Usage
-
-Then, add it to your `gulpfile.js`:
 
 ```javascript
 var es6ModuleToClosure = require("gulp-es6-module-to-closure");
