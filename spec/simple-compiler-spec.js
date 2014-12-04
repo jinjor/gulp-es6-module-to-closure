@@ -50,6 +50,14 @@ describe('compiler', function() {
     // console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.Foo') >= 0).toBe(true);
+    expect(s.indexOf('name.space.Foo = Foo') >= 0).toBe(true);
+  });
+
+  it('must keep comments', function() {
+    var c = new Compiler();
+    var s = c.compile('/*comment*/', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('comment') >= 0).toBe(true);
   });
 
 });

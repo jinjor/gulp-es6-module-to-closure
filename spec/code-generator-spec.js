@@ -5,7 +5,7 @@ var DefaultNameResolver = require('../lib/default-name-resolver.js');
 
 describe('code-generator', function() {
 
-  it('can compile import', function() {
+  it('can generator code', function() {
     var codeGenerator = new CodeGenerator(new PathResolver(new DefaultNameResolver()));
 
   });
