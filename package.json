@@ -1,12 +1,15 @@
 {
   "name": "gulp-es6-module-to-closure",
   "version": "0.1.0",
-  "description": "compile import/export => goog.require/goog.provide",
+  "description": "compile ES6 import/export to goog.require/goog.provide",
+  "keywords": ["gulp", "plugin", "es6-transpiler", "es6", "module", "transpiler"],
   "main": "index.js",
   "scripts": {
     "pretest": "gulp prepare --gulpfile spec/gulpfile.js",
     "test": "istanbul cover ./node_modules/jasmine-node/bin/jasmine-node spec/"
   },
+  "homepage": "https://github.com/jinjor/gulp-es6-module-to-closure",
+  "repository": "https://github.com/jinjor/gulp-es6-module-to-closure",
   "author": "Yosuke Torii",
   "license": "MIT",
   "dependencies": {
