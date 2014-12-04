@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "posttest": "gulp prepare --gulpfile spec/gulpfile.js",
-    "test": "jasmine-node spec"
+    "test": "jasmine-node spec/"
   },
   "author": "",
   "license": "MIT",
