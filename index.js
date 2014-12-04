@@ -29,7 +29,7 @@ function gulpPrefixer(options) {
     var cwd = slash(file.cwd);
     var root = Path.join(cwd, options.root);
     var relpath = slash(Path.relative(root, path));
-    console.log(relpath);
+    // console.log(relpath);
 
     if (file.isStream()) {
       this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));

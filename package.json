@@ -1,13 +1,13 @@
 {
   "name": "gulp-es6-module-to-closure",
   "version": "0.1.0",
-  "description": "",
+  "description": "compile import/export => goog.require/goog.provide",
   "main": "index.js",
   "scripts": {
-    "posttest": "gulp prepare --gulpfile spec/gulpfile.js",
+    "pretest": "gulp prepare --gulpfile spec/gulpfile.js",
     "test": "jasmine-node spec/"
   },
-  "author": "",
+  "author": "Yosuke Torii",
   "license": "MIT",
   "dependencies": {
     "es6-promise": "^2.0.0",
