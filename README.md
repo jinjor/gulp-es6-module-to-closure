@@ -1,6 +1,8 @@
 gulp-es6-module-to-closure
 ==========================
 
+[![Build Status](https://travis-ci.org/jinjor/gulp-es6-module-to-closure.svg?branch=master)](https://travis-ci.org/jinjor/gulp-es6-module-to-closure)
+
 compile import/export => goog.require/goog.provide
 
 __Caution:__ Currently, this plugin supports only simple patterns.
