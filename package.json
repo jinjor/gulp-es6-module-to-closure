@@ -15,7 +15,8 @@
     "clone-closure-for-test": "git clone https://github.com/google/closure-library/ closure-library",
     "pretest": "gulp prepare --gulpfile spec/gulpfile.js",
     "test": "istanbul cover ./node_modules/jasmine-node/bin/jasmine-node spec/",
-    "posttest": "grunt jasmine"
+    "posttest": "grunt jasmine",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "homepage": "https://github.com/jinjor/gulp-es6-module-to-closure",
   "repository": "https://github.com/jinjor/gulp-es6-module-to-closure",
