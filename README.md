@@ -34,7 +34,7 @@ gulp.src("./src/**/*.js")
 
 ### export
 
-compile `${srcDir}/ns/export.js`
+Compiling `${srcDir}/ns/export.js`
 ```javascript
 export var foo = 'FOO';
 ```
@@ -50,7 +50,7 @@ at `${distDir}/ns/export.js`.
 
 ### import
 
-compile `${srcDir}/ns/import.js`
+Compiling `${srcDir}/ns/import.js`
 ```javascript
 import foo from './export.js';
 ```
