@@ -2,7 +2,7 @@ gulp-es6-module-to-closure
 ==========================
 
 [![Build Status](https://travis-ci.org/jinjor/gulp-es6-module-to-closure.svg?branch=master)](https://travis-ci.org/jinjor/gulp-es6-module-to-closure)
-[![Coverage Status](https://coveralls.io/repos/jinjor/gulp-es6-module-to-closure/badge.png)](https://coveralls.io/r/jinjor/gulp-es6-module-to-closure)
+[![Coverage Status](https://coveralls.io/repos/jinjor/gulp-es6-module-to-closure/badge.png?branch=master)](https://coveralls.io/r/jinjor/gulp-es6-module-to-closure?branch=master)
 
 compile import/export => goog.require/goog.provide
 
