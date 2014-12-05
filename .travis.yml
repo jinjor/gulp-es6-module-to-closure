@@ -1,5 +1,5 @@
 language: node_js
 node_js:
     - "0.10.26"
-install: 'npm run clone-closure-for-test'
+before_script: 'npm run clone-closure-for-test'
 after_success: 'npm run coveralls'
