@@ -37,9 +37,25 @@ describe('compiler', function() {
     expect(s.indexOf('name.space.Foo') >= 0).toBe(true);
   });
 
-  it('can compile export (VariableDeclaration)', function() {
+  it('can compile export (VariableDeclaration:var)', function() {
     var c = new Compiler();
     var s = c.compile('export var foo = "Foo";', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.foo') >= 0).toBe(true);
+    expect(s.indexOf('Foo') >= 0).toBe(true);
+  });
+  it('can compile export (VariableDeclaration:let)', function() {
+    var c = new Compiler();
+    var s = c.compile('export let foo = "Foo";', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.foo') >= 0).toBe(true);
+    expect(s.indexOf('Foo') >= 0).toBe(true);
+  });
+  it('can compile export (VariableDeclaration:const)', function() {
+    var c = new Compiler();
+    var s = c.compile('export const foo = "Foo";', 'sample.js', 'name.space');
     // console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.foo') >= 0).toBe(true);
