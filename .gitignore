@@ -1,5 +1,6 @@
 /node_modules
 /coverage
+/closure-library
 /spec/fixtures/dist
 /spec/fixtures/lib
 /.grunt
