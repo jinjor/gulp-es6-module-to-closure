@@ -2,3 +2,4 @@
 /coverage
 /spec/fixtures/dist
 /spec/fixtures/lib
+/.grunt

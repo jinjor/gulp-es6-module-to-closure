@@ -5,7 +5,7 @@ gulp.task('prepare', function() {
   return gulp.src('fixtures/src/**/*.js')
     .pipe(gulpEs6ModuleToClosure({
       root: 'fixtures/src',
-      namespace: 'name.space'
+      namespace: 'com.xxx'
     }))
     .pipe(gulp.dest('fixtures/dist'));
 });

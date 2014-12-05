@@ -1,7 +1,3 @@
 import foo from './export.js';
 
-
-console.log(foo);
-
-
-export { bar };
+export var bar = foo + 'BAR';

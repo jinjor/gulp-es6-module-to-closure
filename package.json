@@ -2,11 +2,20 @@
   "name": "gulp-es6-module-to-closure",
   "version": "0.1.2",
   "description": "compile ES6 import/export to goog.require/goog.provide",
-  "keywords": ["gulp", "plugin", "es6-transpiler", "es6", "module", "transpiler"],
+  "keywords": [
+    "gulp",
+    "plugin",
+    "es6-transpiler",
+    "es6",
+    "module",
+    "transpiler"
+  ],
   "main": "index.js",
   "scripts": {
+    "clone-closure-for-test": "git clone https://github.com/google/closure-library/ closure-library",
     "pretest": "gulp prepare --gulpfile spec/gulpfile.js",
-    "test": "istanbul cover ./node_modules/jasmine-node/bin/jasmine-node spec/"
+    "test": "istanbul cover ./node_modules/jasmine-node/bin/jasmine-node spec/",
+    "posttest": "grunt jasmine"
   },
   "homepage": "https://github.com/jinjor/gulp-es6-module-to-closure",
   "repository": "https://github.com/jinjor/gulp-es6-module-to-closure",
@@ -23,6 +32,9 @@
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jasmine": "^0.8.1",
     "gulp": "^3.8.10",
     "istanbul": "^0.3.4",
     "jasmine-node": "^1.14.5"

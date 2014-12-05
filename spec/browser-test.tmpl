@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+  <% with (scripts) { %>
+  <% [].concat(polyfills, jasmine, boot, vendor).forEach(function(script){ %>
+  <script type="text/javascript" src="<%= script %>"></script>
+  <% }) %>
+  <% helpers.forEach(function(script){ %>
+  <script type="text/javascript" src="<%= script %>"></script>
+  <% }) %>
+  <% [].concat(src).forEach(function(script){ %>
+  <script type="text/javascript" src="<%= script %>"></script>
+  <% }) %>
+  <% [].concat(specs).forEach(function(script){ %>
+  <script type="text/javascript" src="<%= script %>"></script>
+  <% }) %>
+  <% [].concat(reporters).forEach(function(script){ %>
+  <script type="text/javascript" src="<%= script %>"></script>
+  <% }) %>
+  <% }; %>
+</body>
+</html>
