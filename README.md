@@ -29,3 +29,36 @@ gulp.src("./src/**/*.js")
   .pipe(gulp.dest("./dist"));
 ```
 
+
+## Example
+
+### export
+
+compile `${srcDir}/ns/export.js`
+```javascript
+export var foo = 'FOO';
+```
+with namespace `com.xxx` will generate
+```javascript
+goog.provide("com.xxx.ns.foo");
+goog.scope(function() {
+    com.xxx.ns.foo = 'FOO';
+});
+```
+at `${distDir}/ns/export.js`.
+
+
+### import
+
+compile `${srcDir}/ns/import.js`
+```javascript
+import foo from './export.js';
+```
+with namespace `com.xxx` will generate
+```javascript
+goog.require("com.xxx.ns.foo");
+goog.scope(function() {
+    var foo = com.xxx.ns.foo;
+});
+```
+at `${distDir}/ns/import.js`.
