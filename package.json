@@ -1,6 +1,6 @@
 {
   "name": "gulp-es6-module-to-closure",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "compile ES6 import/export to goog.require/goog.provide",
   "keywords": [
     "gulp",
