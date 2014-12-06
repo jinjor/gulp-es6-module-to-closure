@@ -5,3 +5,4 @@
 /spec/fixtures/lib
 /.grunt
 _SpecRunner.html
+npm-debug.log
