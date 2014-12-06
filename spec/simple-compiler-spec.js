@@ -80,7 +80,7 @@ describe('compiler', function() {
   });
   it('can compile export (FunctionDeclaration)', function() {
     var c = new Compiler();
-    var s = c.compile('export default function f(a) { console.log(a); };', 'sample.js', 'name.space');
+    var s = c.compile('export function f(a) { console.log(a); };', 'sample.js', 'name.space');
     // console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.f') >= 0).toBe(true);
