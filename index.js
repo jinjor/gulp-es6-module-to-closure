@@ -24,7 +24,11 @@ function gulpPrefixer(options) {
 
   prefixText = new Buffer(prefixText); // allocate ahead of time
 
-  var stream = through.obj(function(file, enc, cb) {
+  // var files = [];
+
+  function transform(file, enc, cb) {
+    // files.push(file.path);
+
     var path = slash(file.path);
     var cwd = slash(file.cwd);
     var root = Path.join(cwd, options.root);
@@ -45,7 +49,11 @@ function gulpPrefixer(options) {
     // make sure the file goes through the next gulp plugin
     this.push(file);
     cb();
-  });
-  return stream;
+  }
+  function flush(cb) {
+    // console.log(files);
+    cb();
+  }
+  return through.obj(transform, flush);
 };
 module.exports = gulpPrefixer;
