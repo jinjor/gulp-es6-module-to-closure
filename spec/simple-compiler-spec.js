@@ -11,6 +11,14 @@ describe('compiler', function() {
     expect(s.indexOf('name.space.foo') >= 0).toBe(true);
     expect(s.indexOf('name.space.bar') >= 0).toBe(true);
   });
+  it('can compile import(no name space)', function() {
+    var c = new Compiler();
+    var s = c.compile('import {foo,bar} from "foo.js";', 'sample.js');
+    // console.log(s);
+    expect(s.indexOf('goog.require') >= 0).toBe(true);
+    expect(s.indexOf(' foo') >= 0).toBe(true);
+    expect(s.indexOf(' bar') >= 0).toBe(true);
+  });
   it('can compile import 2', function() {
     var c = new Compiler();
     var s = c.compile('import Baz from "./foo/bar/baz.js";', 'sample.js', 'name.space');
