@@ -37,9 +37,9 @@ function gulpPrefixer(options) {
     }
 
     if (file.isBuffer()) {
-      var before = file.contents.toString('utf8');
+      var before = file.contents.toString(enc);
       var after = new Compiler().compile(before, relpath, options.namespace);
-      file.contents = new Buffer(after);
+      file.contents = new Buffer(after, enc);
     }
 
     // make sure the file goes through the next gulp plugin
