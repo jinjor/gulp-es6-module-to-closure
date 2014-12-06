@@ -5,16 +5,6 @@ gulp-es6-module-to-closure
 [![Coverage Status](https://coveralls.io/repos/jinjor/gulp-es6-module-to-closure/badge.png?branch=master)](https://coveralls.io/r/jinjor/gulp-es6-module-to-closure?branch=master)
 
 
-
-## WARNING
-
-__All versions are now deprecated.__
-__Because some implementations are different from ES6 draft spec.__
-
-
-------------
-
-
 compile import/export => goog.require/goog.provide
 
 __Caution:__ Currently, this plugin supports only simple patterns.
