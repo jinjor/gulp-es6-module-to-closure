@@ -45,7 +45,7 @@ describe('compiler', function() {
     expect(s.indexOf('foofoo = name.space.foo') >= 0).toBe(true);
   });
 
-  it('can compile default import', function() {
+  it('can compile import 3', function() {
     var c = new Compiler();
     var s = c.compile('import Bar from "bar.js";import Foo from "foo.js";', 'sample.js', 'name.space');
     // console.log(s);
@@ -107,9 +107,15 @@ describe('compiler', function() {
     var s = c.compile('export default Foo;', 'sample.js', 'name.space');
     // console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
-    expect(s.indexOf('name.space.Foo') >= 0).toBe(true);
     expect(s.indexOf('name.space.Foo = Foo') >= 0).toBe(true);
   });
+  // it('can compile default export 2', function() {// waiting for esprima
+  //   var c = new Compiler();
+  //   var s = c.compile('export default f(a) { console.log(a); };', 'sample.js', 'name.space');
+  //   // console.log(s);
+  //   expect(s.indexOf('goog.provide') >= 0).toBe(true);
+  //   expect(s.indexOf('name.space.f = f') >= 0).toBe(true);
+  // });
 
   it('must keep comments', function() {
     var c = new Compiler();
