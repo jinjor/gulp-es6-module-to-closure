@@ -28,6 +28,15 @@ describe('compiler', function() {
     expect(s.indexOf('name.space.bar') >= 0).toBe(true);
   });
 
+  it('can compile import 4', function() {
+    var c = new Compiler();
+    var s = c.compile('import {foo as foofoo} from "foo.js";', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.require') >= 0).toBe(true);
+    expect(s.indexOf('name.space.foo') >= 0).toBe(true);
+    expect(s.indexOf('foofoo = name.space.foo') >= 0).toBe(true);
+  });
+
   it('can compile default import', function() {
     var c = new Compiler();
     var s = c.compile('import Bar from "bar.js";import Foo from "foo.js";', 'sample.js', 'name.space');
