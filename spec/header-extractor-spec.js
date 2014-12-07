@@ -14,14 +14,14 @@ describe('header-extractor', function() {
   });
   it('can extract import 2', function() {
     var c = new HeaderExtractor();
-    var ast = esprima.parse('import Baz from "foo/bar/baz.js";');
+    var ast = esprima.parse('import {Baz} from "foo/bar/baz.js";');
     var header = c.extract(ast);
     expect(header.require[0].name).toBe('Baz');
     expect(header.require[0].path).toBe('foo/bar/baz.js');
   });
-  it('can extract default import', function() {
+  it('can extract import 3', function() {
     var c = new HeaderExtractor();
-    var ast = esprima.parse('import Bar from "bar.js";import Foo from "foo.js";');
+    var ast = esprima.parse('import {Bar} from "bar.js";import {Foo} from "foo.js";');
     var header = c.extract(ast);
     expect(header.require[0].name === 'Bar' || header.require[0].name === 'Foo').toBe(true);
     expect(header.require[0].path === 'bar.js' || header.require[0].path === 'foo.js').toBe(true);
@@ -38,7 +38,7 @@ describe('header-extractor', function() {
     var c = new HeaderExtractor();
     var ast = esprima.parse('export default Foo;');
     var header = c.extract(ast);
-    expect(header.provide[0].name).toBe('Foo');
+    expect(header.provide[0].name).toBe('$default');
   });
 
 });

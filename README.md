@@ -7,8 +7,8 @@ gulp-es6-module-to-closure
 
 compile ES6 `import/export` => Google Closure `goog.require/goog.provide`
 
-__Caution:__ Currently, this plugin supports only simple patterns.
-Namespaces are determined by thier directories.
+__Attention:__ For supporting ES6 features, some special rules are introduced.
+See examples below, especially if you use translated library from existing code.
 
 
 ## Install
@@ -35,36 +35,74 @@ gulp.src("./src/**/*.js")
 
 ### export
 
-Compiling `${srcDir}/ns/export.js`
-```javascript
+- Compiling `${srcDir}/ns/file-name.js`
+  ```javascript
 export var foo = 'FOO';
 ```
-with namespace `com.xxx` will generate
-```javascript
-goog.provide("com.xxx.ns.foo");
+  with namespace `com.xxx` will generate
+  ```javascript
+goog.provide("com.xxx.ns.filename.foo");
 goog.scope(function() {
-    com.xxx.ns.foo = 'FOO';
+    com.xxx.ns.filename.foo = 'FOO';
 });
 ```
-at `${distDir}/ns/export.js`.
+at `${distDir}/ns/file-name.js`.
+
+
+- Compiling `${srcDir}/ns/file-name.js`
+  ```javascript
+export default 'FOO';
+```
+  with namespace `com.xxx` will generate
+  ```javascript
+goog.provide("com.xxx.ns.filename.$default");
+goog.scope(function() {
+    com.xxx.ns.filename.$default = 'FOO';
+});
+```
+  at `${distDir}/ns/file-name.js`.
 
 
 ### import
 
-Compiling `${srcDir}/ns/import.js`
-```javascript
-import foo from './export.js';
+- Compiling `${srcDir}/ns/app.js`
+  ```javascript
+import {foo} from './file-name.js';
 ```
-with namespace `com.xxx` will generate
-```javascript
-goog.require("com.xxx.ns.foo");
+  with namespace `com.xxx` will generate
+  ```javascript
+goog.require("com.xxx.ns.filename.foo");
 goog.scope(function() {
-    var foo = com.xxx.ns.foo;
+    var foo = com.xxx.ns.filename.foo;
 });
 ```
-at `${distDir}/ns/import.js`.
+  at `${distDir}/ns/app.js`.
 
 
-__Discussion:__ This naming rule is familiar to Google Closure users,
-but some features of ES6 Module are difficult to implement in this way.
-So later version will change the rule for supporting them to work.
+- Compiling `${srcDir}/ns/app.js`
+  ```javascript
+import foo from './file-name.js';
+```
+  with namespace `com.xxx` will generate
+  ```javascript
+goog.require("com.xxx.ns.filename.$default");
+goog.scope(function() {
+    var foo = com.xxx.ns.filename.$default;
+});
+```
+  at `${distDir}/ns/app.js`.
+
+
+### Migration
+
+#### v0.x.x => v1.x.x
+
+Reference from manual code to generated code is changed.
+Before:
+```
+goog.require('name.space.varName');
+```
+After:
+```
+goog.require('name.space.fileName.varName');
+```
