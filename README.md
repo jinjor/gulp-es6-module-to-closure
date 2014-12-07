@@ -93,6 +93,34 @@ goog.scope(function() {
   at `${distDir}/ns/app.js`.
 
 
+### Supported Syntax
+
+Following table is made from Draft October 14, 2014.
+https://people.mozilla.org/~jorendorff/es6-draft.html#sec-static-and-runtme-semantics-module-records
+
+### import
+
+| Syntax                                            | supported |
+|:--------------------------------------------------|:----------|
+| import v from "mod";                              |    ✓     |
+| import * as ns from "mod";                        |    ✓     |
+| import {x} from "mod";                            |    ✓     |
+| import {x as v} from "mod"; {x} from "mod";       |    ✓     |
+
+### export
+
+| Syntax                                            | supported |
+|:--------------------------------------------------|:----------|
+| export var v;                                     |    ✓     |
+| export default function f(){};                    |    ✓     |
+| export default function(){};                      |    ✓     |
+| export default 42;                                |    ✓     |
+| export {x};                                       |    ✓     |
+| export {v as x};                                  |    ✓     |
+| export {x} from "mod";                            |          |
+| export {v as x} from "mod";                       |          |
+| export * from "mod";                              |          |
+
 ### Migration
 
 #### v0.x.x => v1.x.x
