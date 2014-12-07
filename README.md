@@ -5,10 +5,6 @@ master
 [![Build Status](https://travis-ci.org/jinjor/gulp-es6-module-to-closure.svg?branch=master)](https://travis-ci.org/jinjor/gulp-es6-module-to-closure)
 [![Coverage Status](https://coveralls.io/repos/jinjor/gulp-es6-module-to-closure/badge.png?branch=master)](https://coveralls.io/r/jinjor/gulp-es6-module-to-closure?branch=master)
 
-new-strategy
-[![Build Status](https://travis-ci.org/jinjor/gulp-es6-module-to-closure.svg?branch=new-strategy)](https://travis-ci.org/jinjor/gulp-es6-module-to-closure)
-[![Coverage Status](https://coveralls.io/repos/jinjor/gulp-es6-module-to-closure/badge.png?branch=new-strategy)](https://coveralls.io/r/jinjor/gulp-es6-module-to-closure?branch=new-strategy)
-
 
 compile ES6 `import/export` => Google Closure `goog.require/goog.provide`
 
