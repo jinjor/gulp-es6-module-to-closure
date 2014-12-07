@@ -11,6 +11,7 @@ describe('compiler', function() {
     expect(s.indexOf('name.space.foo.foo') >= 0).toBe(true);
     expect(s.indexOf('name.space.foo.bar') >= 0).toBe(true);
   });
+
   it('can compile import(no name space)', function() {
     var c = new Compiler();
     var s = c.compile('import {foo,bar} from "foo.js";', 'sample.js');
