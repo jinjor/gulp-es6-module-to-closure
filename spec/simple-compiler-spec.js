@@ -54,6 +54,13 @@ describe('compiler', function() {
     expect(s.indexOf('name.space.bar.Bar') >= 0).toBe(true);
     expect(s.indexOf('name.space.foo.Foo') >= 0).toBe(true);
   });
+  it('can compile default import', function() {
+    var c = new Compiler();
+    var s = c.compile('import foo from "bar.js";', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.require') >= 0).toBe(true);
+    expect(s.indexOf('foo = name.space.bar.') >= 0).toBe(true);
+  });
 
   it('can compile export (VariableDeclaration:var)', function() {
     var c = new Compiler();
