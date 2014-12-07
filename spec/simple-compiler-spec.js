@@ -21,7 +21,7 @@ describe('compiler', function() {
   });
   it('can compile import 2', function() {
     var c = new Compiler();
-    var s = c.compile('import Baz from "./foo/bar/baz.js";', 'sample.js', 'name.space');
+    var s = c.compile('import {Baz} from "./foo/bar/baz.js";', 'sample.js', 'name.space');
     // console.log(s);
     expect(s.indexOf('goog.require') >= 0).toBe(true);
     expect(s.indexOf('name.space.foo.bar.Baz') >= 0).toBe(true);//TODO add more tests
@@ -47,7 +47,7 @@ describe('compiler', function() {
 
   it('can compile import 3', function() {
     var c = new Compiler();
-    var s = c.compile('import Bar from "bar.js";import Foo from "foo.js";', 'sample.js', 'name.space');
+    var s = c.compile('import {Bar} from "bar.js";import Foo from "foo.js";', 'sample.js', 'name.space');
     // console.log(s);
     expect(s.indexOf('goog.require') >= 0).toBe(true);
     expect(s.indexOf('name.space.Bar') >= 0).toBe(true);
@@ -102,13 +102,13 @@ describe('compiler', function() {
     expect(s.indexOf('name.space.foofoo = foo') >= 0).toBe(true);
   });
 
-  it('can compile default export', function() {
-    var c = new Compiler();
-    var s = c.compile('export default Foo;', 'sample.js', 'name.space');
-    // console.log(s);
-    expect(s.indexOf('goog.provide') >= 0).toBe(true);
-    expect(s.indexOf('name.space.Foo = Foo') >= 0).toBe(true);
-  });
+  // it('can compile default export', function() {
+  //   var c = new Compiler();
+  //   var s = c.compile('export default Foo;', 'sample.js', 'name.space');
+  //   // console.log(s);
+  //   expect(s.indexOf('goog.provide') >= 0).toBe(true);
+  //   expect(s.indexOf('name.space.Foo = Foo') >= 0).toBe(true);
+  // });
   // it('can compile default export 2', function() {// waiting for esprima
   //   var c = new Compiler();
   //   var s = c.compile('export default f(a) { console.log(a); };', 'sample.js', 'name.space');
