@@ -96,6 +96,7 @@ goog.scope(function() {
 ### Supported Syntax
 
 Following table is made from Draft October 14, 2014.
+
 https://people.mozilla.org/~jorendorff/es6-draft.html#sec-static-and-runtme-semantics-module-records
 
 ### import
