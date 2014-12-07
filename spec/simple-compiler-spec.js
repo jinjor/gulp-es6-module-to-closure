@@ -142,7 +142,7 @@ describe('compiler', function() {
   it('can compile default export function', function() {
     var c = new Compiler();
     var s = c.compile('export default function(a) { console.log(a); };', 'sample.js', 'name.space');
-    console.log(s);
+    // console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.sample.default = function') >= 0).toBe(true);
   });
@@ -152,7 +152,7 @@ describe('compiler', function() {
     // console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.sample.default = g') >= 0).toBe(true);
-    expect(s.indexOf('g =') >= 0).toBe(true);
+    expect(s.indexOf('function g') >= 0).toBe(true);
   });
 
   it('must keep comments', function() {
