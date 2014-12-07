@@ -5,7 +5,7 @@ gulp-es6-module-to-closure
 [![Coverage Status](https://coveralls.io/repos/jinjor/gulp-es6-module-to-closure/badge.png?branch=master)](https://coveralls.io/r/jinjor/gulp-es6-module-to-closure?branch=master)
 
 
-compile import/export => goog.require/goog.provide
+compile ES6 `import/export` => Google Closure `goog.require/goog.provide`
 
 __Caution:__ Currently, this plugin supports only simple patterns.
 Namespaces are determined by thier directories.
@@ -63,3 +63,8 @@ goog.scope(function() {
 });
 ```
 at `${distDir}/ns/import.js`.
+
+
+__Discussion:__ This naming rule is familiar to Google Closure users,
+but some features of ES6 Module are difficult to implement in this way.
+So later version will change the rule for supporting them to work.
