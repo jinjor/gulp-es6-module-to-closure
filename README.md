@@ -55,9 +55,9 @@ export default 'FOO';
 ```
   with namespace `com.xxx` will generate
   ```javascript
-goog.provide("com.xxx.ns.filename.$default");
+goog.provide("com.xxx.ns.filename.default");
 goog.scope(function() {
-    com.xxx.ns.filename.$default = 'FOO';
+    com.xxx.ns.filename.default = 'FOO';
 });
 ```
   at `${distDir}/ns/file-name.js`.
@@ -85,9 +85,9 @@ import foo from './file-name.js';
 ```
   with namespace `com.xxx` will generate
   ```javascript
-goog.require("com.xxx.ns.filename.$default");
+goog.require("com.xxx.ns.filename.default");
 goog.scope(function() {
-    var foo = com.xxx.ns.filename.$default;
+    var foo = com.xxx.ns.filename.default;
 });
 ```
   at `${distDir}/ns/app.js`.

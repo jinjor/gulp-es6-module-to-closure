@@ -38,7 +38,7 @@ describe('header-extractor', function() {
     var c = new HeaderExtractor();
     var ast = esprima.parse('export default Foo;');
     var header = c.extract(ast);
-    expect(header.provide[0].name).toBe('$default');
+    expect(header.provide[0].name).toBe('default');
   });
 
 });

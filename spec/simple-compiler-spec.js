@@ -117,20 +117,43 @@ describe('compiler', function() {
     expect(s.indexOf('name.space.sample.foofoo = foo') >= 0).toBe(true);
   });
 
-  // it('can compile default export', function() {
-  //   var c = new Compiler();
-  //   var s = c.compile('export default Foo;', 'sample.js', 'name.space');
-  //   // console.log(s);
-  //   expect(s.indexOf('goog.provide') >= 0).toBe(true);
-  //   expect(s.indexOf('name.space.Foo = Foo') >= 0).toBe(true);
-  // });
-  // it('can compile default export 2', function() {// waiting for esprima
-  //   var c = new Compiler();
-  //   var s = c.compile('export default f(a) { console.log(a); };', 'sample.js', 'name.space');
-  //   // console.log(s);
-  //   expect(s.indexOf('goog.provide') >= 0).toBe(true);
-  //   expect(s.indexOf('name.space.f = f') >= 0).toBe(true);
-  // });
+  it('can compile default export', function() {
+    var c = new Compiler();
+    var s = c.compile('export default Foo;', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.sample.default = Foo') >= 0).toBe(true);
+  });
+  it('can compile default export Number', function() {
+    var c = new Compiler();
+    var s = c.compile('export default 1;', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.sample.default = 1') >= 0).toBe(true);
+  });
+  it('can compile default export string', function() {
+    var c = new Compiler();
+    var s = c.compile('export default "foo";', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.sample.default') >= 0).toBe(true);
+    expect(s.indexOf('foo') >= 0).toBe(true);
+  });
+  it('can compile default export function', function() {
+    var c = new Compiler();
+    var s = c.compile('export default function(a) { console.log(a); };', 'sample.js', 'name.space');
+    console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.sample.default = function') >= 0).toBe(true);
+  });
+  it('can compile default export named function', function() {
+    var c = new Compiler();
+    var s = c.compile('export default function g(a) { console.log(a); };', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.sample.default = g') >= 0).toBe(true);
+    expect(s.indexOf('g =') >= 0).toBe(true);
+  });
 
   it('must keep comments', function() {
     var c = new Compiler();
