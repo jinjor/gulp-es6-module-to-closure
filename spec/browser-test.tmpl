@@ -10,8 +10,30 @@
 
 </head>
 <body>
+	<% with (scripts) { %>
+	  <% [].concat(polyfills, jasmine, boot, vendor, helpers).forEach(function(script){ %>
+	  <script src="<%= script %>"></script>
+	  <% }) %>
+	<% }; %>
+
+  <script src="spec/fixtures/dist/export-3.js"></script>
+  <script src="spec/fixtures/dist/export-4.js"></script>
+  <script src="spec/fixtures/dist/export.js"></script>
+  <script src="spec/fixtures/dist/export2.js"></script>
+  <script src="spec/fixtures/dist/ns/export-child.js"></script>
+  <script src="spec/fixtures/dist/exportdefault.js"></script>
+
+  <script src="spec/fixtures/dist/import-3.js"></script>
+  <script src="spec/fixtures/dist/import-4.js"></script>
+  <script src="spec/fixtures/dist/import-child.js"></script>
+  <script src="spec/fixtures/dist/import.js"></script>
+  <script src="spec/fixtures/dist/importdefault.js"></script>
+  <script src="spec/fixtures/dist/ns/export.js"></script>
+  <script src="spec/fixtures/dist/ns/import.js"></script>
+  
+
 <% with (scripts) { %>
-  <% [].concat(polyfills, jasmine, boot, vendor, helpers, src, specs,reporters).forEach(function(script){ %>
+  <% [].concat(specs, reporters).forEach(function(script){ %>
   <script src="<%= script %>"></script>
   <% }) %>
 <% }; %>

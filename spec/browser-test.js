@@ -6,6 +6,7 @@ goog.require('com.xxx.import4.bar');
 goog.require('com.xxx.ns.export.foo');
 goog.require('com.xxx.ns.import.bar');
 goog.require('com.xxx.importdefault.bar');
+goog.require('com.xxx.importchild.bar');
 
 
 describe('index.js', function() {
@@ -19,6 +20,7 @@ describe('index.js', function() {
     expect(typeof com.xxx.export2.foo).toBe('function');// for #18
     expect(com.xxx.import3.bar).toBe(3);
     expect(com.xxx.import4.bar).toBe(3.5);
+    expect(com.xxx.importchild.bar).toBe('child parent');
   });
 
 });
