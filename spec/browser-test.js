@@ -1,6 +1,7 @@
 goog.require('com.xxx.export.foo');
 goog.require('com.xxx.import.bar');
 goog.require('com.xxx.export2.foo');
+goog.require('com.xxx.import3.bar');
 goog.require('com.xxx.ns.export.foo');
 goog.require('com.xxx.ns.import.bar');
 goog.require('com.xxx.importdefault.bar');
@@ -15,6 +16,7 @@ describe('index.js', function() {
     expect(com.xxx.ns.import.bar).toBe('FOOBAR');
     expect(com.xxx.importdefault.bar).toBe('FOOBAR');
     expect(typeof com.xxx.export2.foo).toBe('function');// for #18
+    expect(com.xxx.import3.bar).toBe(3);
   });
 
 });
