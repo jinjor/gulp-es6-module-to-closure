@@ -5,7 +5,7 @@ gulp-es6-module-to-closure
 [![Coverage Status](https://coveralls.io/repos/jinjor/gulp-es6-module-to-closure/badge.png?branch=master)](https://coveralls.io/r/jinjor/gulp-es6-module-to-closure?branch=master)
 
 
-compile ES6 `import/export` -> Google Closure `goog.require/goog.provide`
+compile ES6 `import/export` => Google Closure `goog.require/goog.provide`
 
 __Attention:__ For supporting ES6 features, some special rules are introduced.
 See examples below, especially if you use translated library from existing code.
@@ -95,7 +95,7 @@ goog.scope(function() {
 
 ### Migration
 
-#### v0.x.x -> v1.x.x
+#### v0.x.x => v1.x.x
 
 Reference from manual code to generated code is changed.
 
