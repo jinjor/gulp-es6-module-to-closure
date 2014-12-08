@@ -1,3 +1,3 @@
 import foo from './exportdefault.js';
 
-export let bar = foo + 'BAR';
+export var bar = foo + 'BAR';

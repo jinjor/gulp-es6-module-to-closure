@@ -72,10 +72,11 @@ describe('compiler', function() {
   it('can compile export (VariableDeclaration:var)', function() {
     var c = new Compiler();
     var s = c.compile('export var foo = "Foo";', 'sample.js', 'name.space');
-    // console.log(s);
+    console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.sample.foo') >= 0).toBe(true);
     expect(s.indexOf('Foo') >= 0).toBe(true);
+    expect(s.indexOf('var foo =') >= 0).toBe(true);
   });
   it('can compile export (VariableDeclaration:let)', function() {
     var c = new Compiler();
@@ -84,6 +85,7 @@ describe('compiler', function() {
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.sample.foo') >= 0).toBe(true);
     expect(s.indexOf('Foo') >= 0).toBe(true);
+    expect(s.indexOf('let foo =') >= 0).toBe(true);
   });
   it('can compile export (VariableDeclaration:const)', function() {
     var c = new Compiler();
@@ -92,6 +94,7 @@ describe('compiler', function() {
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.sample.foo') >= 0).toBe(true);
     expect(s.indexOf('Foo') >= 0).toBe(true);
+    expect(s.indexOf('const foo =') >= 0).toBe(true);
   });
   it('can compile export (FunctionDeclaration)', function() {
     var c = new Compiler();
@@ -120,14 +123,14 @@ describe('compiler', function() {
   it('can compile default export', function() {
     var c = new Compiler();
     var s = c.compile('export default Foo;', 'sample.js', 'name.space');
-    // console.log(s);
+    console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.sample.default = Foo') >= 0).toBe(true);
   });
   it('can compile default export Number', function() {
     var c = new Compiler();
     var s = c.compile('export default 1;', 'sample.js', 'name.space');
-    // console.log(s);
+    console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.sample.default = 1') >= 0).toBe(true);
   });
@@ -142,7 +145,7 @@ describe('compiler', function() {
   it('can compile default export function', function() {
     var c = new Compiler();
     var s = c.compile('export default function(a) { console.log(a); };', 'sample.js', 'name.space');
-    // console.log(s);
+    console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
     expect(s.indexOf('name.space.sample.default = function') >= 0).toBe(true);
   });
