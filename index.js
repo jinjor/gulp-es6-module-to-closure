@@ -9,12 +9,6 @@ var Compiler = require('./lib/simple-compiler.js');
 
 const PLUGIN_NAME = 'gulp-es6-module-to-closure';
 
-// function prefixStream(prefixText) {
-//   var stream = through();
-//   stream.write(prefixText);
-//   return stream;
-// }
-
 // plugin level function (dealing with files)
 function gulpPrefixer(options) {
   var prefixText = 'hoge'
@@ -50,6 +44,7 @@ function gulpPrefixer(options) {
     this.push(file);
     cb();
   }
+
   function flush(cb) {
     // console.log(files);
     cb();

@@ -4,5 +4,7 @@
 /spec/fixtures/dist
 /spec/fixtures/lib
 /.grunt
+/spec/bower.json
+/spec/b_components
 _SpecRunner.html
 npm-debug.log
