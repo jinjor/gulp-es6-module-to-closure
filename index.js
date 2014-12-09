@@ -12,6 +12,12 @@ const PLUGIN_NAME = 'gulp-es6-module-to-closure';
 
 function gulpEs6ModuleToClosure(options) {
 
+  // if(options.bower){
+  // }
+
+  var b = new BowerCollector().collect();
+  console.log(b);
+
   function transform(file, enc, cb) {
     var path = slash(file.path);
     var cwd = slash(file.cwd);
