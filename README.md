@@ -25,7 +25,6 @@ var es6ModuleToClosure = require("gulp-es6-module-to-closure");
 
 gulp.src("./src/**/*.js")
   .pipe(es6ModuleToClosure({
-    root: "./src",
     namespace: "prefix.name.space"
   }))
   .pipe(gulp.dest("./dist"));
