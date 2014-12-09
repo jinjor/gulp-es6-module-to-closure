@@ -1,3 +1,3 @@
-import {foo} from './export.js';
+import {foo} from 'export';
 
 export var bar = foo + 'BAR';

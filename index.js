@@ -5,7 +5,7 @@ var Path = require('path');
 var PluginError = gutil.PluginError;
 
 var esprima = require('esprima-fb');
-var Compiler = require('./lib/simple-compiler.js');
+var SimpleCompiler = require('./lib/simple-compiler.js');
 var BowerCollector = require('./lib/bower-collector.js');
 
 const PLUGIN_NAME = 'gulp-es6-module-to-closure';
@@ -17,6 +17,7 @@ function gulpEs6ModuleToClosure(options) {
 
   var b = new BowerCollector().collect();
   console.log(b);
+  var compiler = new SimpleCompiler();
 
   function transform(file, enc, cb) {
     var path = slash(file.path);
@@ -31,7 +32,7 @@ function gulpEs6ModuleToClosure(options) {
 
     if (file.isBuffer()) {
       var before = file.contents.toString(enc);
-      var after = new Compiler().compile(before, relpath, options.namespace);
+      var after = compiler.compile(before, relpath, options.namespace);
       file.contents = new Buffer(after, enc);
     }
 
