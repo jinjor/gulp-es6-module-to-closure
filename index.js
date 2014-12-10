@@ -18,10 +18,11 @@ function gulpEs6ModuleToClosure(options) {
   // if(options.bower){
   // }
 
-  var b = new BowerCollector().collect();
+  
   var filenameConverter = new FilenameConverter();
   var nameResolver = new DefaultNameResolver(filenameConverter);
   if(options.bower) {
+    var b = new BowerCollector().collect();
     nameResolver = new BowerNameResolver(filenameConverter, b, 'lib.bower');
   }
   var compiler = new Compiler(nameResolver);

@@ -1,0 +1,16 @@
+{
+  "name": "package1",
+  "version": "2.1.1",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "build",
+    "speed",
+    "test",
+    "*.md",
+    "AUTHORS.txt",
+    "Gruntfile.js",
+    "package.json"
+  ]
+}
