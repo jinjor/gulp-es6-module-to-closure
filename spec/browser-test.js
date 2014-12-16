@@ -3,6 +3,7 @@ goog.require('com.xxx.import.bar');
 goog.require('com.xxx.export2.foo');
 goog.require('com.xxx.import3.bar');
 goog.require('com.xxx.import4.bar');
+goog.require('com.xxx.import5.bar');
 goog.require('com.xxx.ns.export.foo');
 goog.require('com.xxx.ns.import.bar');
 goog.require('com.xxx.importdefault.bar');
@@ -22,6 +23,7 @@ describe('index.js', function() {
     expect(com.xxx.import4.bar).toBe(3.5);
     expect(com.xxx.importchild.bar).toBe('child parent');
     expect(com.xxx.ns.importparent.bar).toBe('parent child');
+    expect(com.xxx.import5.bar).toBe('FOOBAR');
   });
 
 });
