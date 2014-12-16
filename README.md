@@ -103,7 +103,7 @@ https://people.mozilla.org/~jorendorff/es6-draft.html#sec-static-and-runtme-sema
 ### import
 
 | Syntax                                            | supported |
-|:--------------------------------------------------|:----------|
+|:--------------------------------------------------|:---------:|
 | import v from "mod";                              |    ✓     |
 | import * as ns from "mod";                        |    ✓     |
 | import {x} from "mod";                            |    ✓     |
@@ -112,7 +112,7 @@ https://people.mozilla.org/~jorendorff/es6-draft.html#sec-static-and-runtme-sema
 ### export
 
 | Syntax                                            | supported |
-|:--------------------------------------------------|:----------|
+|:--------------------------------------------------|:---------:|
 | export var v;                                     |    ✓     |
 | export default function f(){};                    |    ✓     |
 | export default function(){};                      |    ✓     |
