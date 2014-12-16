@@ -104,6 +104,24 @@ describe('compiler', function() {
     expect(s.indexOf('name.space.sample.f') >= 0).toBe(true);
     expect(s.indexOf('console.log') >= 0).toBe(true);
   });
+  it('can compile export (generator)', function() {
+    var c = new Compiler();
+    var s = c.compile('export function* gen(a) { yield 1; };', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.sample.gen') >= 0).toBe(true);
+    expect(s.indexOf('function*') >= 0).toBe(true);
+    expect(s.indexOf('yield') >= 0).toBe(true);
+  });
+  it('can compile export (class)', function() {
+    var c = new Compiler();
+    var s = c.compile('export class Foo { constructor() {} };', 'sample.js', 'name.space');
+    // console.log(s);
+    expect(s.indexOf('goog.provide') >= 0).toBe(true);
+    expect(s.indexOf('name.space.sample.Foo') >= 0).toBe(true);
+    expect(s.indexOf('class') >= 0).toBe(true);
+    expect(s.indexOf('constructor') >= 0).toBe(true);
+  });
   it('can compile export multi', function() {
     var c = new Compiler();
     var s = c.compile('export { foo, bar };', 'sample.js', 'name.space');
