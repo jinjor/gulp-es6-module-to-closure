@@ -114,10 +114,10 @@ describe('compiler', function() {
   });
   it('can compile export A as B', function() {
     var c = new Compiler();
-    var s = c.compile('export { foo as foo2 };', 'sample.js', 'name.space');
+    var s = c.compile('export { foo1 as foo2 };', 'sample.js', 'name.space');
     // console.log(s);
     expect(s.indexOf('goog.provide') >= 0).toBe(true);
-    expect(s.indexOf('name.space.sample.foo2 = foo') >= 0).toBe(true);
+    expect(s.indexOf('name.space.sample.foo2 = foo1') >= 0).toBe(true);
   });
 
   it('can compile default export', function() {

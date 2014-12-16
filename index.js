@@ -3,7 +3,6 @@ var gutil = require('gulp-util');
 var slash = require('slash');
 var Path = require('path');
 var PluginError = gutil.PluginError;
-
 var esprima = require('esprima-fb');
 var Compiler = require('./lib/simple-compiler.js');
 var BowerCollector = require('./lib/bower-collector.js');
@@ -11,17 +10,15 @@ var BowerNameResolver = require('./lib/bower-name-resolver.js');
 var DefaultNameResolver = require('./lib/default-name-resolver.js');
 var FilenameConverter = require('./lib/filename-converter.js');
 
+
 const PLUGIN_NAME = 'gulp-es6-module-to-closure';
 
 function gulpEs6ModuleToClosure(options) {
-
-  // if(options.bower){
-  // }
-
   
   var filenameConverter = new FilenameConverter();
   var nameResolver = new DefaultNameResolver(filenameConverter);
   if(options.bower) {
+    // this feature is not out yet.
     var b = new BowerCollector().collect();
     nameResolver = new BowerNameResolver(filenameConverter, b, 'lib.bower');
   }
@@ -55,4 +52,5 @@ function gulpEs6ModuleToClosure(options) {
   }
   return through.obj(transform, flush);
 };
+
 module.exports = gulpEs6ModuleToClosure;
